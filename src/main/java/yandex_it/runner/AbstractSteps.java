@@ -3,6 +3,7 @@ package yandex_it.runner;
 import org.openqa.selenium.WebDriver;
 import yandex_it.driver.DriverManager;
 import yandex_it.page.AbstractPage;
+import yandex_it.page.MainPage;
 
 import java.lang.reflect.Constructor;
 
@@ -28,5 +29,10 @@ public abstract class AbstractSteps {
         driver.get(page.getUrl());
         page.waitUntilPageCompletelyLoaded();
         return page;
+    }
+
+    protected MainPage openMainPage(){
+        if(DriverManager.getDriver().getCurrentUrl().endsWith("realty.yandex.ru/")) return initPage(MainPage.class);
+        return openPage(MainPage.class);
     }
 }

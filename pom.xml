@@ -15,8 +15,8 @@
         <cucumber.version>1.2.4</cucumber.version>
         <org.seleniumhq.selenium.selenium-java>2.48.2</org.seleniumhq.selenium.selenium-java>
         <ru.yandex.qatools.htmlelements-version>1.17</ru.yandex.qatools.htmlelements-version>
+        <org.testng.testng>6.9.10</org.testng.testng>
     </properties>
-
 
     <dependencies>
         <dependency>
@@ -25,19 +25,40 @@
             <version>${cucumber.version}</version>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${org.seleniumhq.selenium.selenium-java}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-codec</artifactId>
+                    <groupId>commons-codec</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>ru.yandex.qatools.htmlelements</groupId>
             <artifactId>htmlelements-java</artifactId>
             <version>${ru.yandex.qatools.htmlelements-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${org.testng.testng}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
     </dependencies>
 </project>

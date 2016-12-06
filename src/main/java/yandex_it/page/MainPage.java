@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
-public class MainPage extends AbstractPage {
+public class MainPage extends AbstractRealtyPage {
 
     @FindBy(xpath = "//*[@class='header2__main']")
     private HtmlElement header;
